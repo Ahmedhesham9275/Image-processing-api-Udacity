@@ -45,7 +45,7 @@ var path_1 = __importDefault(require("path"));
 var ReshapImage_1 = __importDefault(require("../../ReshapImage"));
 var Pimage = express_1.default.Router();
 Pimage.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var imageName, W, H, Check, beforePath, afterPath, file, file_1, ret, file_2, error_1;
+    var imageName, W, H, Check, beforePath, afterPath, file, file_1, reshape, file_2, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -78,15 +78,15 @@ Pimage.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 if (!(0, fs_1.existsSync)(beforePath)) return [3 /*break*/, 6];
                 console.log('found');
                 file = path_1.default.resolve(beforePath);
-                res.sendFile(file);
+                console.log(file);
                 if (!(0, fs_1.existsSync)(afterPath)) return [3 /*break*/, 3];
                 file_1 = path_1.default.resolve(afterPath);
                 res.sendFile(file_1);
                 return [3 /*break*/, 5];
             case 3: return [4 /*yield*/, (0, ReshapImage_1.default)(imageName, H, W)];
             case 4:
-                ret = _a.sent();
-                console.log(ret);
+                reshape = _a.sent();
+                console.log(reshape);
                 file_2 = path_1.default.resolve(afterPath);
                 res.sendFile(file_2);
                 _a.label = 5;

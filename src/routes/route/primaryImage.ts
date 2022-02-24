@@ -44,18 +44,18 @@ Pimage.get(
         //if the full size image found
         if (existsSync(beforePath)) {
           console.log('found');
-          const file = path.resolve(beforePath);
-          res.sendFile(file);
+          const file : string = path.resolve(beforePath);
+          console.log(file);
           // if the reshaped image allready processed
 
           if (existsSync(afterPath)) {
-            const file = path.resolve(afterPath);
+            const file : string = path.resolve(afterPath);
             res.sendFile(file);
           } else {
             // reshaping the image for first time
-            const ret = await ReshapImage(imageName, H, W);
-            console.log(ret);
-            const file = path.resolve(afterPath);
+            const reshape : string = await ReshapImage(imageName, H, W);
+            console.log(reshape);
+            const file : string = path.resolve(afterPath);
             res.sendFile(file);
           }
         } else {
